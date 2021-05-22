@@ -8,6 +8,7 @@ const beautyError = require('beauty-error')
 const memoizeOne = require('memoize-one')
 const isUrlHttp = require('is-url-http')
 const isEmail = require('is-email-like')
+const isMd5 = require('is-md5')
 const pTimeout = require('p-timeout')
 const urlRegex = require('url-regex')
 const pReflect = require('p-reflect')
@@ -34,6 +35,7 @@ const getFallbackUrl = memoizeOne(({ query, protocol, host }) => {
 
 const is = str => {
   if (isEmail(str)) return 'email'
+  if (isMd5(str)) return 'md5'
   if (urlRegex({ strict: false }).test(str)) return 'domain'
   return 'username'
 }
