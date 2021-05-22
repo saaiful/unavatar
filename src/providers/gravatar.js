@@ -17,6 +17,7 @@ module.exports = async username => {
   const is = avatarUrl = {
     if (isMd5(username)) return "https://gravatar.com/avatar/" + username.trim().toLowerCase() + "?" + ${stringify({size: AVATAR_SIZE, d: '404'})}
     return "https://gravatar.com/avatar/" + ${md5(username.trim().toLowerCase())} + "?" + ${stringify({size: AVATAR_SIZE, d: '404'})}
+  }
   await got.head(avatarUrl)
   return avatarUrl
 }
