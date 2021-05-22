@@ -35,7 +35,7 @@ const getFallbackUrl = memoizeOne(({ query, protocol, host }) => {
 
 const is = str => {
   if (isEmail(str)) return 'email'
-  if (isMd5(str)) return 'md5'
+  if (isMd5(str)) return 'email'
   if (urlRegex({ strict: false }).test(str)) return 'domain'
   return 'username'
 }
